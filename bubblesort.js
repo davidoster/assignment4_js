@@ -33,7 +33,7 @@ class BubbleSort {
                     }
                 } else { // DESC
                     // Size
-                    if(obj.attribure == Size) {
+                    if(obj.attribute == 'Size') {
                         if(toSortarr[j]._size < toSortarr[j+1]._size){
                             [toSortarr[j], toSortarr[j+1]] = [toSortarr[j+1], toSortarr[j]];
                         }
