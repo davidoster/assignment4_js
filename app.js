@@ -10,7 +10,7 @@ for(let i = 0; i < noOfTShirts; i++) {
 }
 
 var myBS = new BubbleSort();
-var sortedBSTShirts = myBS.sort(tShirts)
+var sortedBSTShirts = myBS.sort({data: tShirts, attribute: 'Size', type: 'ASC'}) // {data: tShirts, attribute: Size, type: ASC}
 console.log("Sorted Array BS")
 for(let i = 0; i < noOfTShirts; i++) {
     console.log(sortedBSTShirts[i].toString())
