@@ -20,7 +20,17 @@ class BubbleSort {
                         }
                     }
                     // Color
+                    if(obj.attribute == 'Color') {
+                        if(toSortarr[j]._color > toSortarr[j+1]._color){
+                            [toSortarr[j], toSortarr[j+1]] = [toSortarr[j+1], toSortarr[j]];
+                        }
+                    }
                     // Fabric
+                    if(obj.attribute == 'Fabric') {
+                        if(toSortarr[j]._fabric > toSortarr[j+1]._fabric){
+                            [toSortarr[j], toSortarr[j+1]] = [toSortarr[j+1], toSortarr[j]];
+                        }
+                    }
                 } else { // DESC
                     // Size
                     if(obj.attribure == Size) {
@@ -29,10 +39,18 @@ class BubbleSort {
                         }
                     }
                     // Color
+                    if(obj.attribute == 'Color') {
+                        if(toSortarr[j]._color < toSortarr[j+1]._color){
+                            [toSortarr[j], toSortarr[j+1]] = [toSortarr[j+1], toSortarr[j]];
+                        }
+                    }
                     // Fabric
+                    if(obj.attribute == 'Fabric') {
+                        if(toSortarr[j]._fabric < toSortarr[j+1]._fabric){
+                            [toSortarr[j], toSortarr[j+1]] = [toSortarr[j+1], toSortarr[j]];
+                        }
+                    }
                 }
-                
-                
             }
         }
         return toSortarr;
