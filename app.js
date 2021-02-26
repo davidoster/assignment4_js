@@ -1,5 +1,6 @@
 var TShirt = require('./tshirt')
 var BubbleSort = require('./bubblesort')
+var QuickSort = require('./quicksort')
 let noOfTShirts = 4
 let tShirts = []
 
@@ -36,15 +37,18 @@ function doBubbleSort() {
     printArrayOfTShirts(sortedBSTShirts_Fabric_DESC)
 }
 
-console.log("Unsorted Array")
-for (let i = 0; i < noOfTShirts; i++) {
-    tShirts.push(new TShirt(true))
-    console.log(tShirts[i].toString())
-}
+// console.log("Unsorted Array")
+// for (let i = 0; i < noOfTShirts; i++) {
+//     tShirts.push(new TShirt(true))
+//     console.log(tShirts[i].toString())
+// }
 
-doBubbleSort()
+// doBubbleSort()
 
+var myQS = new QuickSort()
+var myUnsortedElements = [-3, -12, 9, 1, 6]
+console.log(myUnsortedElements)
+var myElements = [...myUnsortedElements]
+myQS.quicksort(myElements, 0, 4)
+console.log(myElements)
 
-// console.log("----------------------------------------")
-// console.log(tShirts[0], tShirts[1])
-// console.log(sortedBSTShirts[0], sortedBSTShirts[1])
