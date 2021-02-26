@@ -12,7 +12,10 @@ function printArrayOfTShirts(arr) {
 
 function doBubbleSort() {
     var myBS = new BubbleSort();
+    // timer.start()
     var sortedBSTShirts_Size_ASC = myBS.sort({ data: tShirts, attribute: 'Size', type: 'ASC' }) // {data: tShirts, attribute: Size, type: ASC}
+    // timer.stop()
+    // console.log(timer.time)
     console.log("Sorted Array BS Size ASC")
     printArrayOfTShirts(sortedBSTShirts_Size_ASC)
 
