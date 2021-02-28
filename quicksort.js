@@ -1,63 +1,65 @@
 class QuickSort {
-    swap(arr, left, right) {
-        const temp = arr[left]
-        arr[left] = arr[right]
-        arr[right] = temp;
+    swap(items, firstIndex, secondIndex) {
+        var temp = items[firstIndex];
+        items[firstIndex] = items[secondIndex];
+        items[secondIndex] = temp;
     }
 
-    partitionMiddle(arr, low, high) {
-        //Get the mid index
-        const mid = Math.floor((low + high) / 2);
-        //Swap the mid element with first element
-        this.swap(arr, mid, low);
-        
-        //Now use the first element as pivot
-        let pivot = arr[low];
-        let lo = low + 1;
-        let hi = high;
-        
-        //Partition the array based on the pivot
-        while(lo <= hi){
-          //Move towards each other
-          while(arr[hi] > pivot){
-            hi = hi - 1
-          }
-          
-          while(lo <= hi && arr[lo] <= pivot){
-            lo = lo + 1;
-          }
-          
-          //When inversion found swap the elements
-          if(lo <= hi){
-            this.swap(arr, lo, hi);
-            lo = lo + 1;
-            hi = hi - 1;
-          }
+    partition(items, left, right, attribute) {
+        var pivot = items[Math.floor((right + left) / 2)],
+            i = left,
+            j = right;
+        while (i <= j) {
+            // Size
+            if (attribute == 'Size') {
+                while (items[i]._size < pivot._size) {
+                    i++;
+                }
+                while (items[j]._size > pivot._size) {
+                    j--;
+                }
+            }
+            // Color
+            if (attribute == 'Color') {
+                while (items[i]._color < pivot._color) {
+                    i++;
+                }
+                while (items[j]._color > pivot._color) {
+                    j--;
+                }
+            }
+            // Fabric
+            if (attribute == 'Fabric') {
+                while (items[i]._fabric < pivot._fabric) {
+                    i++;
+                }
+                while (items[j]._fabric > pivot._fabric) {
+                    j--;
+                }
+            }
+            if (i <= j) {
+                this.swap(items, i, j);
+                i++;
+                j--;
+            }
         }
-        
-        this.swap(arr, low, hi);
-        
-        //Return the pivot index
-        return hi;
-      }
-      
-      quicksort(arr, low, high) {
-          // base condition
-          if (low >= high) {
-            return;
-          }
-      
-          // rearrange the elements across pivot
-          const pivot = this.partitionMiddle(arr, low, high);
-      
-          // recur on sub-array containing elements less than pivot
-          this.quicksort(arr, low, pivot - 1);
-      
-          // recur on sub-array containing elements more than pivot
-          this.quicksort(arr, pivot + 1, high);
+        return i;
+    }
 
-          return(arr)
-      }
+    quicksort(items, left, right, attribute, type) {
+        var index;
+        if (items.length > 1) {
+            index = this.partition(items, left, right, attribute);
+            if (left < index - 1) {
+                this.quicksort(items, left, index - 1, attribute, type);
+            }
+            if (index < right) {
+                this.quicksort(items, index, right, attribute, type);
+            }
+        }
+        // if(type == 'DESC') return items.reverse()
+        return items;
+    }
 }
 
 module.exports = QuickSort
