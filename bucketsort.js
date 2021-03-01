@@ -1,30 +1,33 @@
 class BucketSort {
-    bucketSort(arr, n = arr.length) {
+    bucketSort(arr, n = 7) {
         //Create a bucket array
-        let bucket = new Array(n);
+        let bucket = new Array(arr.length);
 
         //Add bucket group
-        for (let i = 0; i < n; i++) {
+        for (let i = 0; i <= n; i++) {
             bucket[i] = [];
         }
 
         //Add the elements in a same range in bucket
-        for (let i = 0; i < n; i++) {
-            let bucketIndex = Math.floor(arr[i]) * n;
-            bucket[bucketIndex].push(arr[i]);
+        for (let i = 0; i < arr.length; i++) {
+            //let bucketIndex = n //Math.floor(arr[i]) * n;
+            // console.log(i, arr[i])
+            bucket[arr[i]].push(arr[i]);
         }
 
-        //Sort each bucket separately
-        for (let i = 0; i < n; i++) {
-            bucket[i].sort();
-        }
+        // //Sort each bucket separately
+        // for (let i = 0; i < n; i++) {
+        //     bucket[i].sort();
+        // }
 
         // Get the sorted array
         let index = 0;
-        for (let i = 0; i < n; i++) {
+        for (let i = 0; i <= n; i++) {
             for (let j = 0, size = bucket[i].length; j < size; j++) {
                 arr[index++] = bucket[i][j];
             }
         }
     }
 }
+
+module.exports = BucketSort
