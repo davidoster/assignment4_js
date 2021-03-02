@@ -1,5 +1,7 @@
+var Fabric = require('./fabric')
+
 class BucketSort {
-    bucketSort(arr, n = 7) {
+    bucketSort(arr, n = 7, attribute, type) {
         //Create a bucket array
         let bucket = new Array(arr.length);
 
@@ -11,8 +13,9 @@ class BucketSort {
         //Add the elements in a same range in bucket
         for (let i = 0; i < arr.length; i++) {
             //let bucketIndex = n //Math.floor(arr[i]) * n;
-            // console.log(i, arr[i])
-            bucket[arr[i]].push(arr[i]);
+            if (attribute == 'Size') bucket[arr[i]._size].push(arr[i]);
+            if (attribute == 'Color') bucket[arr[i]._color].push(arr[i]);
+            if (attribute == 'Fabric') bucket[Object.values(new Fabric().fabrics).indexOf(arr[i]._fabric)].push(arr[i]);
         }
 
         // //Sort each bucket separately
@@ -27,6 +30,7 @@ class BucketSort {
                 arr[index++] = bucket[i][j];
             }
         }
+        if(type !== 'ASC') arr.reverse()
     }
 }
 

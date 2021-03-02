@@ -3,13 +3,13 @@ var TShirt = require('./tshirt')
 var BubbleSort = require('./bubblesort')
 var QuickSort = require('./quicksort')
 var BucketSort = require('./bucketsort')
-let noOfTShirts = 1200
+let noOfTShirts = 4
 let tShirts = []
 
 console.log("Unsorted Array")
 for (let i = 0; i < noOfTShirts; i++) {
     tShirts.push(new TShirt(true))
-    //console.log(tShirts[i].toString())
+    console.log(tShirts[i].toString())
 }
 
 function printArrayOfTShirts(arr) {
@@ -55,7 +55,7 @@ function doQuickSort() {
     var myQS = new QuickSort()
 
     // Size ASC
-    var QSSizeASCTimer = new Timer() 
+    var QSSizeASCTimer = new Timer()
     var sortedQSTShirts_Size_ASC = myQS.quicksort(tShirts, 0, tShirts.length - 1, 'Size', 'ASC')
     QSSizeASCTimer.stop()
     console.log("Sorted Array QS Size ASC")
@@ -94,10 +94,42 @@ function doQuickSort() {
 
 // we need to time every single one, how long it takes
 function doBucketSort() {
- var myBus = new BucketSort()
- var elements = [1,4,5,3,6,5,2,3,1,6,7,7,3,3,2,4,4,6]
- var sortedByBus = [...tShirts]
- myBus.bucketSort(sortedByBus, 7)
- sortedByBus.forEach(item => console.log(item))
+    var myBus = new BucketSort()
+
+    // Size ASC
+    var sortedByBusSizeASC = [...tShirts]
+    myBus.bucketSort(sortedByBusSizeASC, 7, 'Size', 'ASC')
+    console.log("Sorted Array BUS Size ASC")
+    sortedByBusSizeASC.forEach(item => console.log(item.toString()))
+
+    // Size DESC
+    var sortedByBusSizeDESC = [...tShirts]
+    myBus.bucketSort(sortedByBusSizeDESC, 7, 'Size', 'DESC')
+    console.log("Sorted Array BUS Size DESC")
+    sortedByBusSizeDESC.forEach(item => console.log(item.toString()))
+
+    // Color ASC
+    var sortedByBusColorASC = [...tShirts]
+    myBus.bucketSort(sortedByBusColorASC, 7, 'Color', 'ASC')
+    console.log("Sorted Array BUS Color ASC")
+    sortedByBusColorASC.forEach(item => console.log(item.toString()))
+
+    // Color DESC
+    var sortedByBusColorDESC = [...tShirts]
+    myBus.bucketSort(sortedByBusColorDESC, 7, 'Color', 'DESC')
+    console.log("Sorted Array BUS Color DESC")
+    sortedByBusColorDESC.forEach(item => console.log(item.toString()))
+
+    // Fabric ASC
+    var sortedByBusFabricASC = [...tShirts]
+    myBus.bucketSort(sortedByBusFabricASC, 7, 'Fabric', 'ASC')
+    console.log("Sorted Array BUS Fabric ASC")
+    sortedByBusFabricASC.forEach(item => console.log(item.toString()))
+
+    // Fabric DESC
+    var sortedByBusFabricDESC = [...tShirts]
+    myBus.bucketSort(sortedByBusFabricDESC, 7, 'Fabric', 'DESC')
+    console.log("Sorted Array BUS Fabric DESC")
+    sortedByBusFabricDESC.forEach(item => console.log(item.toString()))
 }
 doBucketSort()

@@ -79,7 +79,7 @@ class TShirt {
 
     toString() {
         // return `Color: ${this.color}, Size: ${this.size}, Fabric: ${this.fabric}`
-        return `Name: ${this.name}, Price: ${this.price}, Size: ${this.size}, Color: ${this.color}, Fabric: ${this.fabric}`
+        return `Name: ${this.name}\tPrice: ${this.price}\tSize: ${this.size}  \tColor: ${this.color}\tFabric: ${this.fabric}`
     }
 }
 
